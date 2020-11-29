@@ -2,8 +2,5 @@
     "presets": [
         "env",
         "stage-0"
-    ],
-    "test": [
-        "jest"
     ]
 }
