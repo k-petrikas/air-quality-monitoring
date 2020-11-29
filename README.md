@@ -8,4 +8,7 @@
 npm i body-parser express mongoose nodemon
 npm install cors
 `
+
 - run `npm start`
+
+- unit testing `npm install --save-dev jest`

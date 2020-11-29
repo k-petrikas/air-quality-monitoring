@@ -4,7 +4,9 @@
   "description": "backend to air quality monitoring",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js --exec babel-node -e js"
+    "start": "nodemon ./index.js --exec babel-node -e js",
+    "test": "jest"
+
   },
   "author": "KP",
   "license": "MIT",
@@ -16,5 +18,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.10.18",
     "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
   }
 }
