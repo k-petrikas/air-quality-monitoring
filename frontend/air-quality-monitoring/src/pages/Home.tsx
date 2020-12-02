@@ -1,7 +1,8 @@
-import { IonContent, IonHeader, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonLabel, IonList, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAvatar, IonContent, IonHeader, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonLabel, IonList, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
+import './flag-icon.css';
+
 
 const Home: React.FC = () => {
 
@@ -11,7 +12,7 @@ const Home: React.FC = () => {
       {
         "_id": "5fc3e857f6ecf061f0f2abb1",
         "countryName": "United States",
-        "countryISOCode": "USA",
+        "countryISOCode": "us",
         "airQualityRanking": 40,
         "airQualityValue": 500,
         "countryPopulation": 330000000,
@@ -20,7 +21,7 @@ const Home: React.FC = () => {
       {
         "_id": "5fc3e8a5f6ecf061f0f2abb2",
         "countryName": "United Kingdom",
-        "countryISOCode": "GBR",
+        "countryISOCode": "gb",
         "airQualityRanking": 30,
         "airQualityValue": 400,
         "countryPopulation": 66000000,
@@ -30,7 +31,7 @@ const Home: React.FC = () => {
       {
         "_id": "5fc3e8a5f6ecf061f0f2abb2",
         "countryName": "United Kingdom",
-        "countryISOCode": "GBR",
+        "countryISOCode": "gb",
         "airQualityRanking": 30,
         "airQualityValue": 400,
         "countryPopulation": 66000000,
@@ -40,7 +41,7 @@ const Home: React.FC = () => {
       {
         "_id": "5fc3e8a5f6ecf061f0f2abb2",
         "countryName": "United Kingdom",
-        "countryISOCode": "GBR",
+        "countryISOCode": "gb",
         "airQualityRanking": 30,
         "airQualityValue": 400,
         "countryPopulation": 66000000,
@@ -50,7 +51,7 @@ const Home: React.FC = () => {
       {
         "_id": "5fc3e8a5f6ecf061f0f2abb2",
         "countryName": "United Kingdom",
-        "countryISOCode": "GBR",
+        "countryISOCode": "gb",
         "airQualityRanking": 30,
         "airQualityValue": 400,
         "countryPopulation": 66000000,
@@ -60,7 +61,7 @@ const Home: React.FC = () => {
       {
         "_id": "5fc3e8a5f6ecf061f0f2abb2",
         "countryName": "United Kingdom",
-        "countryISOCode": "GBR",
+        "countryISOCode": "gb",
         "airQualityRanking": 30,
         "airQualityValue": 400,
         "countryPopulation": 66000000,
@@ -70,7 +71,7 @@ const Home: React.FC = () => {
       {
         "_id": "5fc3e8a5f6ecf061f0f2abb2",
         "countryName": "United Kingdom",
-        "countryISOCode": "GBR",
+        "countryISOCode": "gb",
         "airQualityRanking": 30,
         "airQualityValue": 400,
         "countryPopulation": 66000000,
@@ -80,7 +81,7 @@ const Home: React.FC = () => {
       {
         "_id": "5fc3e8a5f6ecf061f0f2abb2",
         "countryName": "United Kingdom",
-        "countryISOCode": "GBR",
+        "countryISOCode": "gb",
         "airQualityRanking": 30,
         "airQualityValue": 400,
         "countryPopulation": 66000000,
@@ -88,14 +89,14 @@ const Home: React.FC = () => {
       }
     ];
 
-  
+
 
   async function fetchData() {
     console.log("fetching data")
-    
+
   }
 
-  
+
   async function searchNext($event: CustomEvent<void>) {
     await fetchData();
 
@@ -108,9 +109,10 @@ const Home: React.FC = () => {
   airQualityItem = airQuality.map((country) => {
     return (
       <IonItem>
-        <IonLabel>country name: {country.countryName}</IonLabel>
+        <IonAvatar className={`flag-icon flag-icon-${country.countryISOCode}`}></IonAvatar>
+        <IonLabel>{country.countryName}</IonLabel>
         <IonText >
-          <p>{country.countryPopulation} |</p>
+          <p>Population: {country.countryPopulation} |</p>
 
         </IonText>
         <IonText >
@@ -130,14 +132,16 @@ const Home: React.FC = () => {
 
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Air Quality Monitoring</IonTitle>
+    <IonPage >
+      
+      <IonHeader translucent>
+        <IonToolbar >
+          <IonTitle class="ion-text-center">Air Quality Monitoring</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonList>
+      <IonContent >
+
+        <IonList id="list">
           {airQualityItem}
         </IonList>
         <IonInfiniteScroll id="infinite-scroll" threshold="100px" onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
