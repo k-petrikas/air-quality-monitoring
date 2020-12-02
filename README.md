@@ -1,25 +1,24 @@
 # air-quality-monitoring
 
+## Quickstart
+Clone the source:
+`git clone https://github.com/k-petrikas/air-quality-monitoring`
 
-##  to start the backendn server:
+
+
+## backendn startup:
+- ensure you have an instance of mongo db up and running
 - start terminal in /backend
 - install dependencies
-`npm -i --save-dev babel-cli babel-preset-env babel-preset-stage-0
-npm i body-parser express mongoose nodemon
-npm install cors
-`
-
-- run `npm start`
-
-- unit testing `npm install --save-dev jest`
+`npm install`
+- run code: 
+`npm start`
 
 
 
 ## frontend startup
 - install dependencies:
-- run `npm i axios'
-
-
-to run application:
-- make sure you are in dir /frontend/air-quality-monitoring
-- run `ionic serve`
+`npm install`
+- to run application make sure you are in dir /frontend/air-quality-monitoring
+- run code:
+`ionic serve`
