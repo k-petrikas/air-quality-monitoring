@@ -16,4 +16,10 @@ npm install cors
 
 
 ## frontend startup
+- install dependencies:
 - run `npm i axios'
+
+
+to run application:
+- make sure you are in dir /frontend/air-quality-monitoring
+- run `ionic serve`
