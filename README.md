@@ -12,3 +12,8 @@ npm install cors
 - run `npm start`
 
 - unit testing `npm install --save-dev jest`
+
+
+
+## frontend startup
+- run `npm i axios'

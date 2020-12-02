@@ -1,101 +1,37 @@
-import { IonAvatar, IonContent, IonHeader, IonImg, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonLabel, IonList, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
+import { IonCol, IonContent, IonGrid, IonHeader, IonImg, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonLabel, IonList, IonPage, IonRow, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
+import React, { useState } from 'react';
 import './Home.css';
 import './flag-icon.css';
+import axios from 'axios';
 
 
 const Home: React.FC = () => {
 
-  //dummy list of items 
-  var airQuality =
-    [
-      {
-        "_id": "5fc3e857f6ecf061f0f2abb1",
-        "countryName": "United States",
-        "countryISOCode": "us",
-        "airQualityRanking": 40,
-        "airQualityValue": 500,
-        "countryPopulation": 330000000,
-        "__v": 0
-      },
-      {
-        "_id": "5fc3e8a5f6ecf061f0f2abb2",
-        "countryName": "United Kingdom",
-        "countryISOCode": "gb",
-        "airQualityRanking": 30,
-        "airQualityValue": 400,
-        "countryPopulation": 66000000,
-        "__v": 0
-      }
-      ,
-      {
-        "_id": "5fc3e8a5f6ecf061f0f2abb2",
-        "countryName": "United Kingdom",
-        "countryISOCode": "gb",
-        "airQualityRanking": 30,
-        "airQualityValue": 400,
-        "countryPopulation": 66000000,
-        "__v": 0
-      }
-      ,
-      {
-        "_id": "5fc3e8a5f6ecf061f0f2abb2",
-        "countryName": "United Kingdom",
-        "countryISOCode": "gb",
-        "airQualityRanking": 30,
-        "airQualityValue": 400,
-        "countryPopulation": 66000000,
-        "__v": 0
-      }
-      ,
-      {
-        "_id": "5fc3e8a5f6ecf061f0f2abb2",
-        "countryName": "United Kingdom",
-        "countryISOCode": "gb",
-        "airQualityRanking": 30,
-        "airQualityValue": 400,
-        "countryPopulation": 66000000,
-        "__v": 0
-      }
-      ,
-      {
-        "_id": "5fc3e8a5f6ecf061f0f2abb2",
-        "countryName": "United Kingdom",
-        "countryISOCode": "gb",
-        "airQualityRanking": 30,
-        "airQualityValue": 400,
-        "countryPopulation": 66000000,
-        "__v": 0
-      }
-      ,
-      {
-        "_id": "5fc3e8a5f6ecf061f0f2abb2",
-        "countryName": "United Kingdom",
-        "countryISOCode": "gb",
-        "airQualityRanking": 30,
-        "airQualityValue": 400,
-        "countryPopulation": 66000000,
-        "__v": 0
-      }
-      ,
-      {
-        "_id": "5fc3e8a5f6ecf061f0f2abb2",
-        "countryName": "United Kingdom",
-        "countryISOCode": "gb",
-        "airQualityRanking": 30,
-        "airQualityValue": 400,
-        "countryPopulation": 66000000,
-        "__v": 0
-      }
-    ];
+
+  const [items, setItems] = useState<any[]>([]);
+
+  const [disableInfiniteScroll, setDisableInfiniteScroll] = useState<boolean>(false);
 
 
-
+  //get data from mongo db
   async function fetchData() {
-    console.log("fetching data")
+    const url: string = 'http://localhost:4000/airQuality';
+
+    axios.get(url)
+      .then((Response) => {
+        //TODO: may want to implement a if block here to see if data is reached its end
+        // console.log(Response.data)
+        setItems([...items, ...Response.data]);
+
+      })
+      .catch((error) => {
+        console.log(error);
+        setDisableInfiniteScroll(true);
+
+      })
+
 
   }
-
 
   async function searchNext($event: CustomEvent<void>) {
     await fetchData();
@@ -103,20 +39,23 @@ const Home: React.FC = () => {
     ($event.target as HTMLIonInfiniteScrollElement).complete();
   }
 
+  useIonViewWillEnter(async () => {
+    await fetchData();
+  });
+
+  //set innital sate of air quality
   var airQualityItem = null;
 
   //used to loop through the air quality data returned from mongo DB
-  airQualityItem = airQuality.map((country) => {
+  airQualityItem = items.map((country, i) => {
     return (
-      <IonItem>
+      <IonItem key={`${i}`}>
         <IonImg slot="start" className={`flag-icon flag-icon-${country.countryISOCode}`}></IonImg>
         <IonLabel>
           <h2>{country.countryName}</h2>
           <p>Air Quality: {country.airQualityValue}</p>
           <p>Population: {country.countryPopulation} Ranking: {country.airQualityRanking}</p>
         </IonLabel>
-
-
       </IonItem>);
   })
 
@@ -130,17 +69,23 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent >
+        <IonGrid>
+          <IonRow >
+            <IonCol >
+              <IonList id="list" class="ion-padding" >
+                {airQualityItem}
+              </IonList>
+              <IonInfiniteScroll id="infinite-scroll" threshold="100px" disabled={disableInfiniteScroll}
+                onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
+                <IonInfiniteScrollContent
+                  loading-spinner="bubbles"
+                  loading-text="Loading more data...">
+                </IonInfiniteScrollContent>
 
-        <IonList id="list">
-          {airQualityItem}
-        </IonList>
-        <IonInfiniteScroll id="infinite-scroll" threshold="100px" onIonInfinite={(e: CustomEvent<void>) => searchNext(e)}>
-          <IonInfiniteScrollContent
-            loading-spinner="bubbles"
-            loading-text="Loading more data...">
-          </IonInfiniteScrollContent>
-
-        </IonInfiniteScroll>
+              </IonInfiniteScroll>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );
