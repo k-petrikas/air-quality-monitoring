@@ -54,7 +54,7 @@ const Home: React.FC = () => {
         <IonLabel>
           <h2>{country.countryName}</h2>
           <p>Air Quality: {country.airQualityValue}</p>
-          <p>Population: {country.countryPopulation} Ranking: {country.airQualityRanking}</p>
+          <p>Population: {country.countryPopulation.toLocaleString()} Ranking: {country.airQualityRanking}</p>
         </IonLabel>
       </IonItem>);
   })
