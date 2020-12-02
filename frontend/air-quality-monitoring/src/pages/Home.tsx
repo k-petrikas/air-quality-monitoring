@@ -1,4 +1,4 @@
-import { IonAvatar, IonContent, IonHeader, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonLabel, IonList, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAvatar, IonContent, IonHeader, IonImg, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonLabel, IonList, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import './Home.css';
 import './flag-icon.css';
@@ -109,31 +109,21 @@ const Home: React.FC = () => {
   airQualityItem = airQuality.map((country) => {
     return (
       <IonItem>
-        <IonAvatar className={`flag-icon flag-icon-${country.countryISOCode}`}></IonAvatar>
-        <IonLabel>{country.countryName}</IonLabel>
-        <IonText >
-          <p>Population: {country.countryPopulation} |</p>
+        <IonImg slot="start" className={`flag-icon flag-icon-${country.countryISOCode}`}></IonImg>
+        <IonLabel>
+          <h2>{country.countryName}</h2>
+          <p>Air Quality: {country.airQualityValue}</p>
+          <p>Population: {country.countryPopulation} Ranking: {country.airQualityRanking}</p>
+        </IonLabel>
 
-        </IonText>
-        <IonText >
-          <p>{country.airQualityRanking} |</p>
 
-        </IonText>
-        <IonText >
-          <p>{country.airQualityValue} |</p>
-
-        </IonText>
-        <IonText >
-          <p>{country.airQualityValue} </p>
-
-        </IonText>
       </IonItem>);
   })
 
 
   return (
     <IonPage >
-      
+
       <IonHeader translucent>
         <IonToolbar >
           <IonTitle class="ion-text-center">Air Quality Monitoring</IonTitle>
