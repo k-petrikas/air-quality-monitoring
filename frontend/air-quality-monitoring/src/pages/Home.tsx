@@ -16,8 +16,9 @@ const Home: React.FC = () => {
   //get data from mongo db
   async function fetchData() {
     const url: string = 'http://localhost:4000/airQuality';
+    const apiToken: string = 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFpcnFAYWlycS5jb20iLCJ1c2VybmFtZSI6ImFpclF1YWxpdHkiLCJfaWQiOiI1ZmM4M2RjYTcyNDkwMTA5YWM1YmU1NzUiLCJpYXQiOjE2MDY5NTg2NzB9.VmXFgZAGNhvLmo8OoPd24iDihVJvkS1pZ7cJZvQN7As'
 
-    axios.get(url)
+    axios.get(url, {headers:{'Authorization': apiToken}})
       .then((Response) => {
         //TODO: may want to implement a if block here to see if data is reached its end
         // console.log(Response.data)
