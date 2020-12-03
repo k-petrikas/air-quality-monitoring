@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "5fc83dca72490109ac5be575"
+  },
+  "username": "airQuality",
+  "email": "airq@airq.com",
+  "created_date": {
+    "$date": "2020-12-03T01:22:18.566Z"
+  },
+  "hashPassword": "$2b$10$AnQM0NCCu.EHYokCQIOzeuMl1Kec7ksoQ0mm/U7MWK5deN2dLwzbe",
+  "__v": 0
+}]

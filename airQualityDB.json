@@ -1,0 +1,101 @@
+[{
+  "_id": {
+    "$oid": "5fc3e857f6ecf061f0f2abb1"
+  },
+  "countryName": "United States",
+  "countryISOCode": "us",
+  "airQualityRanking": 40,
+  "airQualityValue": 500,
+  "countryPopulation": 330000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc3e8a5f6ecf061f0f2abb2"
+  },
+  "countryName": "United Kingdom",
+  "countryISOCode": "gb",
+  "airQualityRanking": 30,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc85c3e72490109ac5be576"
+  },
+  "countryName": "Australia",
+  "countryISOCode": "au",
+  "airQualityRanking": 20,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc85c5272490109ac5be577"
+  },
+  "countryName": "Chile",
+  "countryISOCode": "cl",
+  "airQualityRanking": 20,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc85c6072490109ac5be578"
+  },
+  "countryName": "Japan",
+  "countryISOCode": "jp",
+  "airQualityRanking": 20,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc85c7872490109ac5be579"
+  },
+  "countryName": "New Zealand",
+  "countryISOCode": "nz",
+  "airQualityRanking": 20,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc85c8a72490109ac5be57a"
+  },
+  "countryName": "Spain",
+  "countryISOCode": "es",
+  "airQualityRanking": 20,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc85cf772490109ac5be57b"
+  },
+  "countryName": "Mexico",
+  "countryISOCode": "mx",
+  "airQualityRanking": 20,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc85d0672490109ac5be57c"
+  },
+  "countryName": "Iceland",
+  "countryISOCode": "is",
+  "airQualityRanking": 20,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc85d1e72490109ac5be57d"
+  },
+  "countryName": "Brazil",
+  "countryISOCode": "br",
+  "airQualityRanking": 20,
+  "airQualityValue": 400,
+  "countryPopulation": 66000000,
+  "__v": 0
+}]
