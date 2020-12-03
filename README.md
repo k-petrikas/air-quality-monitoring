@@ -4,9 +4,9 @@
 Clone the source:
 `git clone https://github.com/k-petrikas/air-quality-monitoring`
 
-import mongo DB collections:
-`airQualityDB.json`
-`usersDB.json`
+import mongo DB collections:    
+`airQualityDB.json`     
+`usersDB.json`    
 import instructions can be found here: https://docs.mongodb.com/compass/master/import-export#export-data-from-a-collection
 
 
