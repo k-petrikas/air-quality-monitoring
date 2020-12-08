@@ -1,12 +1,16 @@
 # air-quality-monitoring
 
-## Quickstart
+## Quick start
 Clone the source:
 `git clone https://github.com/k-petrikas/air-quality-monitoring`
 
+import mongo DB collections:    
+`airQualityDB.json`     
+`usersDB.json`    
+import instructions can be found here: https://docs.mongodb.com/compass/master/import-export#export-data-from-a-collection
 
 
-## backendn startup:
+## back end startup:
 - ensure you have an instance of mongo db up and running
 - start terminal in /backend
 - install dependencies
@@ -16,7 +20,7 @@ Clone the source:
 
 
 
-## frontend startup
+## front end startup
 - install dependencies:
 `npm install`
 - to run application make sure you are in dir /frontend/air-quality-monitoring
@@ -28,3 +32,4 @@ Clone the source:
 - build the latest version of the app `ionic build`
 - run `npx cap open android` to open app in android studio
 - run android app in stuido 
+
