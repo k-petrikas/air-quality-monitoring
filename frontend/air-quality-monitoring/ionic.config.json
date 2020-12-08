@@ -1,5 +1,7 @@
 {
   "name": "Air Quality Monitoring",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
