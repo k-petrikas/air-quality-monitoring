@@ -22,3 +22,9 @@ Clone the source:
 - to run application make sure you are in dir /frontend/air-quality-monitoring
 - run code:
 `ionic serve`
+
+## Android app startup
+- navigate into /frontend/air-quality-monitoring
+- build the latest version of the app `ionic build`
+- run `npx cap open android` to open app in android studio
+- run android app in stuido 
