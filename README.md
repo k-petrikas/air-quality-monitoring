@@ -30,6 +30,6 @@ import instructions can be found here: https://docs.mongodb.com/compass/master/i
 ## Android app startup
 - navigate into /frontend/air-quality-monitoring
 - build the latest version of the app `ionic build`
-- run `npx cap open android` to open app in android studio
+- run `ionic capacitor run android --livereload` to open app in android studio
 - run android app in stuido 
 
