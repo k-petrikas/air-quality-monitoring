@@ -4,6 +4,7 @@ import bodyparser from 'body-parser';
 import cors from 'cors';
 import routes from './routes/airQualityMonitoringRoutes'
 import jsonwebtoken from 'jsonwebtoken'
+import { properties } from './properties.js';
 
 
 const app = express();
@@ -11,7 +12,7 @@ const PORT = 4000;
 
 // mongo connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/airQualityDB', {
+mongoose.connect(properties.mongodb, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

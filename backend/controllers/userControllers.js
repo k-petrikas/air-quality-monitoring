@@ -5,6 +5,7 @@ import { UserSchema } from '../models/userModel';
 
 const User = mongoose.model('User', UserSchema);
 
+// validates token on api requests 
 export const loginRequired = (req, res, next) => {
     if (req.user) {
         next();
@@ -13,6 +14,7 @@ export const loginRequired = (req, res, next) => {
     }
 }
 
+// register a new user to service
 export const register = (req, res) => {
     const newUser = new User(req.body);
     newUser.hashPassword = bcrypt.hashSync(req.body.password, 10);
@@ -28,6 +30,7 @@ export const register = (req, res) => {
     })
 }
 
+// used to validate users are loged into service
 export const login = (req,res) => {
     User.findOne({
         email: req.body.email

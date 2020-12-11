@@ -16,11 +16,6 @@ const routes = (app) => {
         .get(loginRequired, getAirQuality);
 
 
-    app.route('/auth/register')
-        .post(register)
-
-    app.route('/login')
-        .post(login)
 }
 
 export default routes;
