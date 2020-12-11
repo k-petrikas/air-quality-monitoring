@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './Home.css';
 import './flag-icon.css';
 import axios from 'axios';
+import { properties } from '../properties.js';
 
 
 const Home: React.FC = () => {
@@ -12,22 +13,29 @@ const Home: React.FC = () => {
 
   const [disableInfiniteScroll, setDisableInfiniteScroll] = useState<boolean>(false);
 
+  const [displayAnyErrors, setErrors] = useState<any>();
+
 
   //get data from mongo db
   async function fetchData() {
-    const url: string = 'http://localhost:4000/airQuality';
-    const apiToken: string = 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFpcnFAYWlycS5jb20iLCJ1c2VybmFtZSI6ImFpclF1YWxpdHkiLCJfaWQiOiI1ZmM4M2RjYTcyNDkwMTA5YWM1YmU1NzUiLCJpYXQiOjE2MDY5NTg2NzB9.VmXFgZAGNhvLmo8OoPd24iDihVJvkS1pZ7cJZvQN7As'
+    const url: string = properties.airQualityAPI;
+    const apiToken: string = properties.airQualityToken
 
-    axios.get(url, {headers:{'Authorization': apiToken}})
+    axios.get(url, { headers: { 'Authorization': apiToken} })
       .then((Response) => {
         //TODO: may want to implement a if block here to see if data is reached its end
         // console.log(Response.data)
         setItems([...items, ...Response.data]);
-
       })
       .catch((error) => {
+        if (error.response.status === 401) {
+          // device was not authorized to hit api
+          setErrors(<p>Device is not autorized to recive Air Quality Infomation</p>);
+        }
         console.log(error);
         setDisableInfiniteScroll(true);
+
+
 
       })
 
@@ -74,6 +82,7 @@ const Home: React.FC = () => {
         <IonGrid>
           <IonRow >
             <IonCol >
+              {displayAnyErrors}
               <IonList id="list" class="ion-padding" >
                 {airQualityItem}
               </IonList>
