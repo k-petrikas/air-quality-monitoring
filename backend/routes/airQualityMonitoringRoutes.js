@@ -13,7 +13,7 @@ const routes = (app) => {
         .post(addNewAirQuality)
         
         //GET endpoint
-        .get(loginRequired, getAirQuality);
+        .get(getAirQuality);
 
 
 }
